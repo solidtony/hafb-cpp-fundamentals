@@ -5,21 +5,21 @@ constexpr float METERS_TO_INCHES = 39.3701f;
 
 enum class EBMIRange
 {
-    Underwieght,
+    Underweight,
     Healthy,
     Overweight,
     Obese
 };
 
 float CalculateBMIUsingMetric(float weight_kg, float height_m);
-float CalculateBMIUsingEmperical(float weight_lbs, float height_in);
+float CalculateBMIUsingImperial(float weight_lbs, float height_in);
 void PrintBMIRangeMessage(EBMIRange BMIRange);
 void PrintBMIRangeMessage(float BMIvalue);
 EBMIRange GetBMIRange(float BMIvalue);
 
 int main()
 {
-    // Calcualtes BMI: weight(kg)/[height(m)]^2
+    // Calculates BMI: weight(kg)/[height(m)]^2
     float Weight = 0.0f;
     float Height = 0.0f;
     float BMI = 0.0f;
@@ -34,11 +34,11 @@ int main()
     if (Height > 0.0f)
     {
         BMI = CalculateBMIUsingMetric(Weight, Height);
-        std::cout << "You'r BMI in metric units is: " << BMI << std::endl;
-        BMI = CalculateBMIUsingEmperical(Weight/KILOGAMS_TO_POUNDS, Height/METERS_TO_INCHES);
-        std::cout << "You'r BMI in emperical units is: " << BMI << std::endl;
+        std::cout << "You're BMI in metric units is: " << BMI << std::endl;
+        BMI = CalculateBMIUsingImperial(Weight/KILOGAMS_TO_POUNDS, Height/METERS_TO_INCHES);
+        std::cout << "You're BMI in Imperial units is: " << BMI << std::endl;
 
-        // Calculate and print BMI using emperical
+        // Calculate and print BMI using Imperial
         PrintBMIRangeMessage(BMI);
     }
     else
@@ -58,7 +58,7 @@ float CalculateBMIUsingMetric(float weight_kg, float height_m)
     return BMI;
 }
 
-float CalculateBMIUsingEmperical(float weight_lbs, float height_in)
+float CalculateBMIUsingImperial(float weight_lbs, float height_in)
 {
     const float BMI_COEFFICIENT = 703.0f;
 
@@ -72,7 +72,7 @@ EBMIRange GetBMIRange(float BMIvalue)
     const float kOverweightLimit = 29.9f;
 
     if(BMIvalue < kUnderweightLimit)
-        return EBMIRange::Underwieght;
+        return EBMIRange::Underweight;
     else if (BMIvalue < kHealthyLimit)
         return EBMIRange::Healthy;
     else if (BMIvalue < kOverweightLimit)
@@ -83,10 +83,10 @@ EBMIRange GetBMIRange(float BMIvalue)
 
 void PrintBMIRangeMessage(EBMIRange BMIRange)
 {
-    std::cout << "You'r BMI range is: ";
+    std::cout << "You're BMI range is: ";
     switch (BMIRange)
     {
-        case EBMIRange::Underwieght:
+        case EBMIRange::Underweight:
             std::cout << "Underweight\n";
             break;
         case EBMIRange::Healthy:
