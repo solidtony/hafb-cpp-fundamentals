@@ -1,5 +1,14 @@
-#ifndef CARS_H_
-#define CARS_H_
+#pragma once
 
+int HorsePower();
 
-#endif /* !CARS_H_ */
+// using namespace lamborghini;
+namespace lamborghini
+{
+    int HorsePower();
+}
+// using namespace porsche;
+namespace porsche
+{
+    int HorsePower();
+}

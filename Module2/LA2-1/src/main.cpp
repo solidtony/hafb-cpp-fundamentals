@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -12,10 +13,14 @@ using namespace std;
  */
 int main() {
   // create a variable of type string
+  std::string name = "Name";
 
   // print it out
+  std::cout << name << std::endl;
 
   // get a string from a user
+  std::getline(std::cin, name);
+  std::cout << name << std::endl;
 
   // add two strings together
 
