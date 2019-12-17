@@ -3,7 +3,7 @@ Collins, Bill
 37
 Smith, Bart
 8
-Allen, Jim,
+Allen, Jim
 15
 Griffin, Jim
 22
