@@ -1,5 +1,6 @@
-#ifndef FACTOR_H_
-#define FACTOR_H_
+#pragma once
 
-
-#endif /* !FACTOR_H_ */
+void FactorMod();
+void FactorMod(int mod_number);
+void FactorMod(int mod_number, int max_range);
+unsigned int GetFactorMod(int mod_number, int max_range);
