@@ -1,8 +1,7 @@
 #include <array>
+#include <fstream>
 #include <iostream>
 #include <string>
-
-using namespace std;
 
 /**
  * @brief Shows how to define and use an ofstream object to write to a file.
@@ -15,31 +14,40 @@ using namespace std;
 int main() {
   // arrays that contain data
   const int kMaxSize = 20;
-  array<int, kMaxSize> commute_minutes = {22, 51, 63, 12, 17, 93, 45,
+  std::array<int, kMaxSize> commute_minutes = {22, 51, 63, 12, 17, 93, 45,
                                           18, 66, 45, 43, 77, 38, 43,
                                           52, 21, 8,  19, 7,  14};
 
-  array<int, kMaxSize> commute_miles = {8,  22, 28, 2,  4,  62, 15, 6, 42, 28,
+  std::array<int, kMaxSize> commute_miles = {8,  22, 28, 2,  4,  62, 15, 6, 42, 28,
                                         16, 43, 27, 18, 41, 8,  3,  5, 2,  4};
 
-  array<string, kMaxSize> towns = {
+  std::array<std::string, kMaxSize> towns = {
       "Bountiful",    "Centerville",        "Clinton",       "South Weber",
       "West Point",   "Cottonwood Heights", "Murray",        "Salt Lake City",
       "South Jordan", "West Jordan",        "American Fork", "Lindon",
       "Payson",       "Pleasant Grove",     "Spanish Fork",  "Harrisville",
       "Ogden",        "Pleasant View",      "Riverdale",     "South Ogden"};
 
-  array<string, kMaxSize> names = {
+  std::array<std::string, kMaxSize> names = {
       "Walter", "Chris", "Stan",   "Mary",  "Shelly", "Kim",  "Kelly",
       "George", "Sam",   "Walter", "Ann",   "Laura",  "Paul", "Phillip",
       "Susan",  "Hal",   "Olivia", "Polly", "Roy",    "Scott"};
 
   // create a variable of type ofstream
-
+  std::ofstream commuteFile;
   // open the file commute.txt
-
+  commuteFile.open("../commute.csv");
+  if(commuteFile.fail())
+  {
+    std::cout << "ERROR: Failed to open commute file.\n Sutting down\n";
+    return 1;
+  }
   // write commute_minutes and commute_miles to the file commute.txt
-
+  for(int index = 0; index < commute_miles.size(); ++index)
+  {
+    commuteFile << commute_minutes[index] << "," << commute_miles[index] << std::endl;
+  }
+  commuteFile.close();
   // create a variable of type ofstream and open the file town.txt
 
   // write the towns to the file town.txt

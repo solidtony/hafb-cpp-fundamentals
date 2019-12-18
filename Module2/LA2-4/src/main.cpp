@@ -1,10 +1,18 @@
-#include <iostream>
+#include <array>
 
-using namespace std;
+#include <iostream>
+#include "carton.h"
+
+constexpr int kMaxBoxes = 10;
 
 int main() {
   // create a Carton object using the default constructor
-
+  std::array<Carton, kMaxBoxes> boxes;
+  boxes[0].SetMeasurements(6, 6, 6);
+  for (auto box : boxes)
+  {
+    box.PrintInfo();
+  }
   // create a Carton object using the other constructor
 
   // create an array of Cartons
