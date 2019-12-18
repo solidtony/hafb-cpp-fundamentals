@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 class Carton
 {
 private:
@@ -28,4 +30,6 @@ public:
     // Methods
     void PrintInfo();
     float Volume() const;
+    std::string WriteData(std::ostream& out) const;
+    std::string WriteData(std::ostream& out, std::string deliminator) const;
 };

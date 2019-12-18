@@ -42,3 +42,15 @@ float Carton::Volume() const
 {
     return Length() * Width() * Height();
 }
+
+std::string Carton::WriteData(std::ostream& out) const
+{
+    WriteData(out, ",");
+}
+std::string Carton::WriteData(std::ostream& out, std::string deliminator) const
+{
+    out << Length() << deliminator << Width()
+                    << deliminator << Height()
+                    << deliminator << Volume()
+                    << std::endl;
+}

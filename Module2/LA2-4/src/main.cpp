@@ -2,17 +2,24 @@
 
 #include <iostream>
 #include "carton.h"
-
-constexpr int kMaxBoxes = 10;
+#include "carton_fileio.h"
 
 int main() {
   // create a Carton object using the default constructor
-  std::array<Carton, kMaxBoxes> boxes;
+  std::array<Carton, kMaxArraySize> boxes;
   boxes[0].SetMeasurements(6, 6, 6);
-  for (auto box : boxes)
+
+  int numberOfRecords = ReadDataFormatFromFile("../carton_data.txt", boxes);
+
+  int count = 0;
+  while(count < numberOfRecords)
   {
-    box.PrintInfo();
+    std::cout << "---------\nCarton: " << count + 1 << std::endl;
+    boxes[count].PrintInfo();
+    ++count;
   }
+
+  WriteDataToFile("../carton_data.csv", boxes, numberOfRecords);
   // create a Carton object using the other constructor
 
   // create an array of Cartons
