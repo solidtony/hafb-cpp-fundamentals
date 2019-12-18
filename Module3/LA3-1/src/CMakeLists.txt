@@ -8,6 +8,8 @@ add_library(${LIB_NAME}
   SHARED
     height.h
     height.cpp
+    counter.h
+    counter.cpp
   )
 # 
 # Note: In windows, the executable name will be: ca.exe
