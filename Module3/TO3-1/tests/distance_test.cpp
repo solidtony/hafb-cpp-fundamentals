@@ -20,8 +20,8 @@ TEST_CASE("Create distance object with default constructor","[start]")
     Distance d1;
     // Act
     // Assert
-    CHECK(d1.feet() == 0);
-    CHECK(d1.inches() == 0);
+    CHECK(d1.Feet() == 0);
+    CHECK(d1.Inches() == 0);
 }
 
 TEST_CASE("Create distance object with second constructor","[start]")
@@ -30,8 +30,8 @@ TEST_CASE("Create distance object with second constructor","[start]")
     Distance d1(12, 6.6);
     // Act
     // Assert
-    CHECK(d1.feet() == 12);
-    CHECK(d1.inches() == Approx(6.6).epsilon(0.01));
+    CHECK(d1.Feet() == 12);
+    CHECK(d1.Inches() == Approx(6.6).epsilon(0.01));
 }
 
 // TEST_CASE("Test output Operator", "[cout]")
@@ -59,8 +59,8 @@ TEST_CASE("Test - Operator", "[sub]")
   d3 = d1 - d2;
   
   // Assert
-  CHECK(d3.feet() ==  3); // compare two strings
-  CHECK(d3.inches() == Approx(9.4).epsilon(0.01));
+  CHECK(d3.Feet() ==  3); // compare two strings
+  CHECK(d3.Inches() == Approx(9.4).epsilon(0.01));
 }
 
 TEST_CASE("Test update_distance", "[update]")
@@ -68,9 +68,9 @@ TEST_CASE("Test update_distance", "[update]")
   // Arrange
   Distance d1(12, 6.6);
   // Act
-  d1.update_distance(9, 3.3);
+  d1.UpdateDistance(9, 3.3);
   
   // Assert
-  CHECK(d1.feet() ==  9); // compare two strings
-  CHECK(d1.inches() == Approx(3.3).epsilon(0.01));
+  CHECK(d1.Feet() ==  9); // compare two strings
+  CHECK(d1.Inches() == Approx(3.3).epsilon(0.01));
 }
