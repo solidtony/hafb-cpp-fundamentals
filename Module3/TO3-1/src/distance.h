@@ -8,8 +8,12 @@ private:
     int m_feet;
     float m_inches;
 
+    float ConvertInchesToFeet_(float inches) const;
+    float ConvertFeetDecimalToInches_(float feet) const;
+
 public:
     Distance() : m_feet(0), m_inches(0.f) {}
+    Distance(const Distance& dist);
     Distance(int feet, float inches);
     ~Distance() {}
 
@@ -20,7 +24,9 @@ public:
     void SetInches(float inches) {m_inches = inches;}
     void ShowDist() const;
     void UpdateDistance(int feet, float inches);
-    int ConvertInchesToFeet(float& inches);
-    Distance operator + (Distance distance2) const;
-    Distance operator - (Distance rhs) const;
+    Distance operator + (const Distance& distance2) const;
+    Distance operator - (const Distance& rhs) const;
+    bool operator < (const Distance& rhs) const;
+    bool operator == (const Distance& rhs) const;
+    Distance operator = (const Distance& rhs);
 };

@@ -4,7 +4,7 @@
 // Main Function
 int main() 
 {
-  Distance dis1(1, 29.5);
+  Distance dis1(1, -2.5);
   Distance dis2(2, 0.5);
   auto dis3 = dis1 - dis2;
   auto dis4 = dis2 - dis1;

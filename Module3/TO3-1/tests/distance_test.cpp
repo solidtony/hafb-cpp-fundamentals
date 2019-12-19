@@ -74,3 +74,17 @@ TEST_CASE("Test update_distance", "[update]")
   CHECK(d1.Feet() ==  9); // compare two strings
   CHECK(d1.Inches() == Approx(3.3).epsilon(0.01));
 }
+
+TEST_CASE("Test < Operator", "[less than]")
+{
+  // Arrange
+  Distance d1(12, 6.6);
+  Distance d2(34, 7.3);
+  // Act
+  bool result_true = d1 < d2;
+  bool result_false = d2 < d1;
+  
+  // Assert
+  CHECK(result_true == true); // compare two strings
+  CHECK(result_false == false); // compare two strings
+}
