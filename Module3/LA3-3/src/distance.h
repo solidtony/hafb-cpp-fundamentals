@@ -19,4 +19,7 @@ public:
     void SetFeet(int feet) {m_feet = feet;}
     void SetInches(float inches) {m_inches = inches;}
     void ShowDist() const;
+    void SetDistance(int feet, float inches);
+    int CorrectInches(float& inches);
+    Distance operator + (Distance distance2) const;
 };
